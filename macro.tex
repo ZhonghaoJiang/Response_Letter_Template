@@ -1,0 +1,114 @@
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage{times} % make the section title in Times New Roman
+
+
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage[T1]{fontenc}
+
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=3cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{threeparttable} 
+\usepackage{multirow}
+\usepackage{url}
+\urlstyle{same}
+\hypersetup{hidelinks}
+\usepackage{xcolor}
+\definecolor{reviewertitle}{RGB}{112,173,71}
+\definecolor{reviewertext}{RGB}{56,86,35}
+\definecolor{modifiedcolor}{RGB}{0,112,192}
+
+
+
+\usepackage[most]{tcolorbox}
+
+\newcommand{\separator}{\noindent\rule{\linewidth}{0.4pt}}
+
+
+\newcommand{\manuscriptid}[1]{\noindent\textbf{Original Manuscript ID:} #1 \\}
+
+\newcommand{\manuscripttitle}[1]{\noindent\textbf{Original Article Title:} #1 \\}
+
+\newcommand{\starttitle}{\noindent\textbf{Responses to Editor and Reviewers’ Comments}}
+
+\newcommand{\startEditorTitle}{\noindent\textbf{Response to Editor’s Comments}}
+
+\newcommand{\startReviewerTitle}{\noindent\textbf{Response to Reviewers’s Comments}\\
+
+\noindent\textbf{Summary of Changes Based on the Reviewer’s Feedback (Detailed Responses for 
+Each Concern is listed in the following pages):}
+\\
+}
+
+\newenvironment{letter}{
+  \setlength{\parindent}{0pt}   % 全文不缩进
+  \setlength{\parskip}{0.2cm}   % 段落间距
+}{}
+
+\newcounter{editorCount}  % 定义 editor 计数器
+\newcommand{\editorComment}[1]{%
+  {\parindent=0pt
+  \refstepcounter{editorCount}%
+  \noindent\textbf{E\arabic{editorCount} Comment:}\\
+  #1\par
+  \vspace{1\baselineskip}}
+}
+
+% reviewer 总编号
+\newcounter{reviewerCount}
+% reviewer 内的 comment 子编号
+\newcounter{commentCount}[reviewerCount]
+% reviewer 命令
+\newcommand{\reviewer}{%
+  \refstepcounter{reviewerCount}%
+  \setcounter{commentCount}{0}% 每个 reviewer 开始时把 comment 归零
+  \noindent\textcolor{reviewertitle}{\textbf{Reviewer \arabic{reviewerCount}}}\par
+}
+
+% comment 命令（分级编号）
+\newcommand{\reviewerComment}[1]{%
+  \refstepcounter{commentCount}%
+  \noindent\textcolor{reviewertitle}{\textbf{\arabic{reviewerCount}.\arabic{commentCount} Comment}}
+  
+  \textcolor{reviewertext}{#1}\par
+  \vspace{1\baselineskip}
+}
+
+\newcommand{\response}[1]{%
+  \noindent\textbf{Author response:}#1\par
+  \vspace{1\baselineskip}
+}
+
+\newcommand{\action}[1]{%
+  \noindent\textbf{Author action:}#1\par
+  \separator
+}
+
+\newcommand{\referencesContent}[1]{%
+  {\parindent=0pt
+  \noindent\textbf{References:}\par#1\par
+  \vspace{1\baselineskip}
+  }
+}
+
+\newcommand{\oriContent}[1]{%
+  \vspace{1\baselineskip}%
+  {\color{modifiedcolor}\textit{#1}}%
+  \par
+  \vspace{1\baselineskip}%
+}
+
+
+
