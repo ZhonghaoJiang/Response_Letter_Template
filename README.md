@@ -1,4 +1,4 @@
-# Response Letter Template of TSE/TOSEM
+# Response Letter Template for TSE/TOSEM
 
 This repository contains a LaTeX template for writing response letters to reviewers and editors of TSE/TOSEM journals (maybe others). 
 The template is designed to help authors effectively address the comments and suggestions provided by reviewers and editors during the peer review process.
